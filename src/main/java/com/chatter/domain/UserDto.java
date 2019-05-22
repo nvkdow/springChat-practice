@@ -1,8 +1,8 @@
 package com.chatter.domain;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class UserDto {
 
     private String username;
@@ -17,6 +17,8 @@ public class UserDto {
     public boolean isEnabled() { return enabled; }
     public String getUserAuth() { return userAuth; }
 
+    public void setUsername(String username) { this.username = username; }
+    public void setPassword(String password) { this.password = password; }
     public void setUsermail(String usermail) { this.usermail = usermail; }
     public void setEnabled(boolean enabled) { this.enabled = enabled; }
     public void setUserAuth(String userAuth) { this.userAuth = userAuth; }
