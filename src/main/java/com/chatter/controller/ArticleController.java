@@ -21,7 +21,7 @@ public class ArticleController {
 
     @RequestMapping(value = "/board/write", method = RequestMethod.POST)
     public String postWrite(ArticleDto article, Principal principal) {
-        article.setAuthor("admin");
+        article.setAuthor(principal.getName());
         articleService.insertArticle(article);
 
         return "redirect:/board/list/1";

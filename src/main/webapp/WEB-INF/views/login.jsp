@@ -13,7 +13,7 @@
     </div>
     <div id="field-access">
         <div id="field-access-login" style="text-align: center;">
-            <form action="<c:url value="/login"/>" method="post">
+            <form action="<c:url value="/loginUser"/>" method="post">
                 <label><input type="text" name="username" placeholder="user-id"/></label><br/>
                 <label><input type="password" name="password" placeholder="password"/></label><br/>
                 <button type="submit" value="login" style="

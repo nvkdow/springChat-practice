@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/security
+                            http://www.springframework.org/schema/security/spring-security-3.2.xsd
+                             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <security:http auto-config="true" use-expressions="true">
+        <security:intercept-url pattern="/board/**" access="isAuthenticated()" />
+        <security:intercept-url pattern="/user/**" access="isAuthenticated()" />
+        <security:intercept-url pattern="/**" access="permitAll()" />
+
+        <security:form-login
+                login-page="/login" username-parameter="username" password-parameter="password"
+                always-use-default-target="true" login-processing-url="/loginUser" authentication-failure-url="/login"
+                default-target-url="/board/list"/>
+
+        <security:logout
+                invalidate-session="true" logout-url="/logout" logout-success-url="/home"/>
+    </security:http>
+
+    <security:authentication-manager>
+        <security:authentication-provider ref="userAuthProvider"/>
+        <security:authentication-provider user-service-ref="userService"/>
+    </security:authentication-manager>
+
+    <bean id="userService" class="com.chatter.service.UserService"/>
+    <bean id="userAuthProvider" class="com.chatter.service.UserAuthenticationProvider"/>
+</beans>

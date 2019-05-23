@@ -19,10 +19,10 @@ public class IndexController {
         return "home";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/login")
     public String showLogin() { return "login"; }
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String loginUser(String username, String password) {
+    @RequestMapping(value = "/loginUser", method = RequestMethod.POST)
+    public String loginUser() {
         return "redirect:/board/list";
     }
 
