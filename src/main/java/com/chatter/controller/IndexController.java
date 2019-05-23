@@ -5,7 +5,6 @@ import com.chatter.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -23,9 +22,12 @@ public class IndexController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String showLogin() { return "login"; }
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String showLogin(String username, String password) {
-        return "redirect:/home";
+    public String loginUser(String username, String password) {
+        return "redirect:/board/list";
     }
+
+    @RequestMapping("/logout")
+    public String logoutUser() { return "redirect:/home"; }
 
     @RequestMapping(value = "/register")
     public String register() { return "register"; }
