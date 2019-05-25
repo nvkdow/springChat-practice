@@ -37,6 +37,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
     }
 
     private boolean matchPassword(String username, String loginPwd, String password) {
+        loginPwd = loginPwd.replaceAll("['\"\\-!@#$%^&*()?]", "");
         String hashedPw = userService.getHashedPassword(username, loginPwd);
 
         return hashedPw.equals(password);

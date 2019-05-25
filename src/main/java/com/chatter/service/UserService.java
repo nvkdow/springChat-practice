@@ -15,6 +15,7 @@ public class UserService implements UserDetailsService {
     private UserMapper userMapper;
 
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException  {
+        username = username.replaceAll("['\"\\-!@#$%^&*()?]", "");
         UserDto user = userMapper.findByUsername(username);
         if(user == null){
             throw new UsernameNotFoundException(username);
@@ -22,7 +23,7 @@ public class UserService implements UserDetailsService {
         return user;
     }
 
-    public String getHashedPassword(String username, String password) {
+    String getHashedPassword(String username, String password) {
         return userMapper.getHashedPassword(username, password);
     }
 

@@ -3,6 +3,7 @@ package com.chatter.repository;
 import com.chatter.domain.UserDto;
 import org.apache.ibatis.annotations.*;
 
+@Mapper
 public interface UserMapper {
 
     @Select("SELECT username, password, usermail, enabled, userAuth FROM users WHERE username = #{username}")

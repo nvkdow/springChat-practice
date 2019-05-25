@@ -14,7 +14,7 @@
         <div>
             <label><input type="text" name="content" placeholder="Input Contents..." style="height: 600px; width: 500px"/></label>
         </div>
-        <button type="submit" value="upload"></button>
+        <button type="submit" value="upload" style="padding: 10px 40px;"></button>
     </form>
 </div>
 </body>

@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.*;
 
 import java.util.ArrayList;
 
+@Mapper
 public interface ArticleMapper {
 
     @Insert("INSERT INTO articles(author, title, content) VALUES (#{author}, #{title}, #{content})")
