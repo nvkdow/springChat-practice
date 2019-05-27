@@ -6,7 +6,7 @@
 </head>
 <body>
     <div id="img-logo">
-        <img src="<c:url value="/images/logo.png"/>" alt="logo" style="
+        <img src="<c:url value="images/logo.png"/>" alt="logo" style="
                 display: block;
                 margin: 15% auto 5% auto;
                 height: 25%;" />

@@ -2,10 +2,8 @@ package com.chatter.controller;
 
 import com.chatter.domain.Message;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.websocket.*;
-import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 import java.util.HashMap;
@@ -20,11 +18,6 @@ public class ChatEndpoint {
     private Session session;
     private static Set<ChatEndpoint> chatEndpoints = new CopyOnWriteArraySet<>();
     private static HashMap<String, String> users = new HashMap<>();
-
-    @RequestMapping("/chat/begin")
-    public String showChat() {
-        return "chat/begin";
-    }
 
     @OnOpen
     public void onOpen(Session session) throws IOException {
