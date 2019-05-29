@@ -1,2 +1,2 @@
 # springChat-practice
-practice Spring Framework through chatting project implementation
+practice Spring Framework through web Chatting development
