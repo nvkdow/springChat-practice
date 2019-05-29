@@ -5,12 +5,11 @@ var chatBox = document.getElementById("chat_box");
 function openSocket() {
     // Ensures only one connection is open at a time
     if (webSocket !== undefined && webSocket.readyState !== WebSocket.CLOSED) {
-        writeResponse("WebSocket is already opened : " + webSocket.sessionId);
+        writeResponse("{\"content\" : \"WebSocket is already opened : " + webSocket.sessionId + "\"");
         return;
     }
 
     // Create a new instance of the websocket
-    writeResponse(roomKey);
     webSocket = new WebSocket("ws://localhost:8080/chatter_war_exploded/chatter/" + roomKey);
     webSocket.onopen = function(event) {
         // For reasons I can't determine, onopen gets called twice
@@ -26,11 +25,11 @@ function openSocket() {
     };
 
     webSocket.onclose = function(event) {
-        writeResponse("Connection closed : " + event.data);
+        writeResponse(event.data);
     };
 
     webSocket.onerror = function(event) {
-        writeResponse("Connection error : " + event.data);
+        writeResponse(event.data);
     };
 }
 
@@ -45,5 +44,6 @@ function closeSocket() {
     webSocket.close();
 }
 function writeResponse(text) {
-    chatBox.innerHTML += "<br/>" + text;
+    var json = JSON.parse(text);
+    chatBox.innerHTML += "<br/>" + "Guest" + json['from'] + " : " + json['content'];
 }

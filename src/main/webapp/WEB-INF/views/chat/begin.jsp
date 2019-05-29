@@ -9,7 +9,7 @@
 <body>
 <jsp:include page="../modules/navbar.jsp" />
 
-<div class="text-center">
+<div class="text-center align-middle">
     <span>Your Chat Room is</span>
     <input type="text" value="${roomKey}" disabled />
     <a href="<c:url value="/chat/room-${roomKey}" />">enter</a>
