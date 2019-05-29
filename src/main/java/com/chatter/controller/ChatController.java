@@ -18,14 +18,15 @@ public class ChatController {
         float randf = randGen.nextFloat();
 
         String roomKey = encodeMD5(Float.toString(randf));
+        System.out.println("ChatController.showChatBegin.roomKey : " + roomKey);
         modelMap.addAttribute("roomKey" , roomKey);
 
-        return "/chat/begin";
+        return "chat/begin";
     }
 
-    @RequestMapping("/chat/{roomKey}")
+    @RequestMapping("/chat/room-{roomKey}")
     public String showChatRoom(@PathVariable("roomKey") String roomKey, ModelMap modelMap) {
-        System.out.println("roomKey : " + roomKey);
+        System.out.println("ChatController.showChatRoom.roomKey : " + roomKey);
         modelMap.addAttribute("roomKey", roomKey);
         return "/chat/room";
     }

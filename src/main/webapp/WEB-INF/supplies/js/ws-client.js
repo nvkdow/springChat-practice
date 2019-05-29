@@ -10,7 +10,8 @@ function openSocket() {
     }
 
     // Create a new instance of the websocket
-    webSocket = new WebSocket("ws://localhost:8080/chatter_war_exploded/chatter/begin");
+    writeResponse(roomKey);
+    webSocket = new WebSocket("ws://localhost:8080/chatter_war_exploded/chatter/" + roomKey);
     webSocket.onopen = function(event) {
         // For reasons I can't determine, onopen gets called twice
         // and the first time event.data is undefined.
